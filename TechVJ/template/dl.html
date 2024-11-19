@@ -3,66 +3,188 @@
 <head>
    <meta charset="UTF-8">
    <link rel="shortcut icon" href="" type="image/x-icon">
+   <meta property="og:image" content="" itemprop="thumbnailUrl">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>%s</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Delius">
+   <title>{{file_name}} | Rizz</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Delius&display=swap">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.6.8/dist/plyr.css" />
+
    <style>
       body {
-         background: linear-gradient(to bottom left, #212121, #424242);
+         background: linear-gradient(135deg, #2c3e50, #34495e);
+         color: #ecf0f1;
          font-family: 'Raleway', sans-serif;
-         color: #ffffff;
+         overflow-x: hidden;
+      }
+      .navbar {
+         background-color: rgba(44, 62, 80, 0.9);
+         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
       .navbar-brand {
+         font-size: 2rem;
          font-weight: bold;
-         font-family: 'Delius', cursive;
+         color: #1abc9c;
+      }
+      .video-title {
+         font-size: 1.5rem;
+         font-weight: 700;
+         text-align: center;
+         margin: 20px 0;
+         text-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
+      }
+      .video-container {
+         border-radius: 15px;
+         padding: 20px;
+         background-color: #2c3e50;
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+         margin-bottom: 30px;
+      }
+      .btn {
+         border-radius: 50px;
+         transition: all 0.3s;
+         background: #1abc9c;
+         color: #fff;
+         border: none;
+         position: relative;
+         overflow: hidden;
+         font-size: 1.1rem;
+      }
+      .btn:hover {
+         background: #16a085;
+      }
+      .btn::after {
+         content: '';
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         width: 300%;
+         height: 300%;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 50%;
+         transition: all 0.5s;
+         transform: translate(-50%, -50%) scale(0);
+         z-index: 0;
+      }
+      .btn:hover::after {
+         transform: translate(-50%, -50%) scale(1);
+      }
+      .btn span {
+         position: relative;
+         z-index: 1;
       }
       .footer {
-         background-color: rgba(255, 255, 255, 0.2);
-         padding: 1rem;
+         background-color: #2c3e50;
+         padding: 20px 0;
          text-align: center;
       }
-      .main-content {
-         background: rgba(33, 33, 33, 0.8);
-         padding: 2rem;
-         border-radius: 10px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      .social-icons a {
+         margin: 0 10px;
+         color: #1abc9c;
+         transition: transform 0.2s;
+         font-size: 1.2rem;
       }
-      .btn-primary {
-         background-color: #FF5722;
-         border-color: #FF5722;
+      .social-icons a:hover {
+         transform: scale(1.1);
+         color: #16a085;
       }
-      .btn-primary:hover {
-         background-color: #E64A19;
-         border-color: #E64A19;
+      .text-warning {
+         font-weight: bold;
+      }
+      .text-danger {
+         font-weight: bold;
+      }
+      . text-success {
+         font-weight: bold;
       }
    </style>
 </head>
+
 <body>
    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-         <a class="navbar-brand" href="https://t.me/vj_bots">Home</a>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Removed GitHub, YouTube, and Telegram links -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="#">Rizz</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+               <span class="navbar-toggler-icon"></span>
+            </button>
          </div>
       </nav>
    </header>
 
-   <main class="container text-center my-5">
-      <div class="main-content">
-         <h1 class="mb-4">%s</h1>
-         <a href="%s" class="btn btn-primary btn-lg">Download</a>
+   <main class="container mt-4">
+      <div class="video-title wow animate__animated animate__fadeInRight">
+         <span id="file-name">{{file_name}}</span>
+      </div>
+      
+      <div class="video-container wow animate__animated animate__fadeInLeft">
+         <video id="player" class="player w-100" playsinline controls>
+            <source src="{{file_url}}" type="video/mp4">
+            <track kind="subtitles" src="{{subtitle_url}}" srclang="en" label="English">
+            <track kind="audio" src="{{audio_url}}" srclang="en" label="English">
+         </video>
+      </div>
+
+      <div class="text-center mt-4">
+         <h4 class="text-warning">Play with...</h4>
+         <div class="d-flex justify-content-center flex-wrap">
+            <button onclick="vlc_player()" class="btn m-2"><span>VLC Player</span></button>
+            <button onclick="mx_player()" class="btn m-2"><span>MX Player</span></button>
+            <button onclick="playit_player()" class="btn m-2"><span>Play-it</span></button>
+            <button onclick="s_player()" class="btn m-2"><span>S Player</span></button>
+            <button onclick="km_player()" class="btn m-2"><span>KM Player</span></button>
+            <button onclick="hd_player()" class="btn m-2"><span>HD Player (4K)</span></button>
+         </div>
+         <button onclick="lazyDownload()" class="btn btn-danger mt-3"><span>Download Now</span></button>
+      </div>
+
+      <div class="te</div>xt-center mt-4">
+         <p class="text-danger"></p>
+         <p class="text-success">If you find any broken links, please contact <a href="https://t.me/aboutRizzx" class="text-warning">Rizz</a></p>
       </div>
    </main>
 
    <footer class="footer">
-      <p>© <script>document.write(new Date().getFullYear());</script> All rights reserved.</p>
+      <div class="social-icons">
+         <a href="https://t.me/CloudStoreRizz" target="_blank">Cloud Shop</a>
+         <a href="https://t.me/aboutRizzx" target="_blank">Telegram</a>
+         <a href="https://t.me/+96q-IVaTa9E5Njg1" target="_blank">Education</a>
+         <a href="https://t.me/+sfF-LT2Zdi84NGFl" target="_blank">Advamce Leech Group</a>
+      </div>
+      <p>© <script>document.write(new Date().getFullYear())</script> Rizz. All rights reserved.</p>
    </footer>
 
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/plyr@3.6.8/dist/plyr.polyfilled.js"></script>
+   <script src="js/wow.min.js"></script>
+   <script>
+      new WOW().init();
+   </script>
+   <script>
+      const controls = [
+         'play-large',
+         'rewind', 'play', 
+         'fast-forward', 
+         'progress', 
+         'current-time',
+         'duration',
+         'mute',
+         'volume',
+         'captions',
+         'settings',
+         'pip',
+         'airplay',
+         'download',
+         'fullscreen',
+         'subtitles',
+         'audio-track'
+      ];
+      document.addEventListener('DOMContentLoaded', () => {
+         const player = Plyr.setup('.player', { controls });
+      });
+   </script>
 </body>
 </html>
