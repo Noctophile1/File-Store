@@ -54,16 +54,16 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
+            InlineKeyboardButton('Updates Channel', url='https://t.me/PubleechGroup')
             ],[
-            InlineKeyboardButton('🔍 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vj_bot_disscussion'),
-            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vj_botz')
+            InlineKeyboardButton('Shop', url='https://t.me/CloudStoreRizz'),
+            InlineKeyboardButton('Owner', url='https://t.me/Noctophile')
             ],[
-            InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('Help', callback_data='help'),
+            InlineKeyboardButton('About', callback_data='about')
         ]]
         if CLONE_MODE == True:
-            buttons.append([InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
+            buttons.append([InlineKeyboardButton('🤖', callback_data='clone')])
         reply_markup = InlineKeyboardMarkup(buttons)
         me2 = (await client.get_me()).mention
         await message.reply_photo(
@@ -119,7 +119,7 @@ async def start(client, message):
                 return
         except Exception as e:
             return await message.reply_text(f"**Error - {e}**")
-        sts = await message.reply("**🔺 ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ**")
+        sts = await message.reply("**Please wait**")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -164,15 +164,15 @@ async def start(client, message):
                         text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
                         quote=True,
                         disable_web_page_preview=True,
-                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                                                            InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
+                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀Fast Download", url=download),  # we download Link
+                                                            InlineKeyboardButton('🖥️Watch online', url=stream)]])  # web stream Link
                     )
                 if STREAM_MODE == True:
                     button = [[
-                        InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                        InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
+                        InlineKeyboardButton("🚀Fast Download", url=download),  # we download Link
+                        InlineKeyboardButton('🖥️Watch online', url=stream)
                     ],[
-                        InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
+                        InlineKeyboardButton("• Watch in WEB APP •", web_app=WebAppInfo(url=stream))
                     ]]
                     reply_markup=InlineKeyboardMarkup(button)
                 else:
@@ -252,19 +252,19 @@ async def start(client, message):
             await msg.edit_caption(f_caption)
             if STREAM_MODE == True:
                 g = await msg.reply_text(
-                    text=f"**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
+                    text=f"**ボタンをクリックすると魔法が起こります👇**",
                     quote=True,
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
+                                InlineKeyboardButton('🚀Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
                             ]
                         ]
                     )
                 )
             if AUTO_DELETE_MODE == True:
-                k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>{AUTO_DELETE} minutes</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</b>")
+                k = await client.send_message(chat_id = message.from_user.id, text=f"This Movie File/Video will be deleted in <b><u>{AUTO_DELETE} minutes</u> 🫥 <i></b>(Due to Copyright Issues)</i>.")
                 await asyncio.sleep(AUTO_DELETE_TIME)
                 try:
                     await msg.delete()
@@ -313,13 +313,13 @@ async def start(client, message):
     )
     if STREAM_MODE == True:
         g = await x.reply_text(
-            text=f"**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
+            text=f"**ボタンをクリックすると魔法が起こります👇**",
             quote=True,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
+                        InlineKeyboardButton('🚀Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
                     ]
                 ]
             )
@@ -386,8 +386,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.delete()
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('🔒 Cʟᴏsᴇ', callback_data='close_data')
+            InlineKeyboardButton('Home', callback_data='start'),
+            InlineKeyboardButton('Close', callback_data='close_data')
         ]]
         await client.edit_message_media(
             query.message.chat.id, 
@@ -408,15 +408,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
+            InlineKeyboardButton('Updates Channel', url='https://t.me/PubleechGroup')
             ],[
-            InlineKeyboardButton('🔍 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vj_bot_disscussion'),
-            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vj_botz')
+            InlineKeyboardButton('Shop', url='https://t.me/CloudStoreRizz'),
+            InlineKeyboardButton('Owner', url='https://t.me/Noctophile')
             ],[
-            InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
-            ],[
-            InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
+            InlineKeyboardButton('Help', callback_data='help'),
+            InlineKeyboardButton('About', callback_data='about')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -438,8 +436,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "clone":
         buttons = [[
-            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('🔒 Cʟᴏsᴇ', callback_data='close_data')
+            InlineKeyboardButton('Home', callback_data='start'),
+            InlineKeyboardButton('Close', callback_data='close_data')
         ]]
         await client.edit_message_media(
             query.message.chat.id, 
@@ -459,8 +457,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('🔒 Cʟᴏsᴇ', callback_data='close_data')
+            InlineKeyboardButton('Home', callback_data='start'),
+            InlineKeyboardButton('Close', callback_data='close_data')
         ]]
         await client.edit_message_media(
             query.message.chat.id, 
@@ -501,8 +499,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 # Ask Doubt on telegram @KingVJ01
 
             button = [[
-                InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
+                InlineKeyboardButton("🚀Fast Download", url=download),  # we download Link
+                InlineKeyboardButton('🖥️Watch online', url=stream)
             ]]
             reply_markup=InlineKeyboardMarkup(button)
             await log_msg.reply_text(
@@ -512,14 +510,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=reply_markup
             )
             button = [[
-                InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
+                InlineKeyboardButton("🚀Fast Download", url=download),  # we download Link
+                InlineKeyboardButton('🖥️Watch online', url=stream)
             ],[
-                InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
+                InlineKeyboardButton("Watch in WEB APP", web_app=WebAppInfo(url=stream))
             ]]
             reply_markup=InlineKeyboardMarkup(button)
             await query.message.reply_text(
-                text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
+                text="☠︎",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=reply_markup
