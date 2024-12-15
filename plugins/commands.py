@@ -413,6 +413,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Shop', url='https://t.me/CloudStoreRizz'),
             InlineKeyboardButton('Owner', url='https://t.me/Noctophile')
             ],[
+            InlineKeyboardButton('🤖', callback_data='clone')
+            ],[
             InlineKeyboardButton('Help', callback_data='help'),
             InlineKeyboardButton('About', callback_data='about')
         ]]
