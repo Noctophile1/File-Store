@@ -506,7 +506,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]]
             reply_markup=InlineKeyboardMarkup(button)
             await log_msg.reply_text(
-                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                text=f"ɪᴅ #{user_id} \n {username} \n{fileName}",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=reply_markup
@@ -519,7 +519,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]]
             reply_markup=InlineKeyboardMarkup(button)
             await query.message.reply_text(
-                text="☠︎",
+                text="HAVE FUN BUDDY ...........!☠︎",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=reply_markup
