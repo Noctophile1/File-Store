@@ -23,7 +23,7 @@ API_HASH = environ.get("API_HASH", "e469e84c943ce3b8b056eb6a296f2c67")
 BOT_TOKEN = environ.get("BOT_TOKEN", "8030607379:AAFfRjpTIUOsF0aNtFQxLDvoTEmJx3JaT7U")
 
 PICS = (environ.get('PICS', 'https://envs.sh/BcS.jpg')).split() # Bot Start Picture
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '833465134 6769726996').split()]
 BOT_USERNAME = environ.get("BOT_USERNAME", "Alienstream_bot") # without @
 PORT = environ.get("PORT", "8080")
 
