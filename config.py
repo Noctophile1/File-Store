@@ -1,6 +1,4 @@
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
 
 import re
@@ -20,11 +18,11 @@ def is_enabled(value, default):
 # Bot Information
 API_ID = int(environ.get("API_ID", "21857983"))
 API_HASH = environ.get("API_HASH", "e469e84c943ce3b8b056eb6a296f2c67")
-BOT_TOKEN = environ.get("BOT_TOKEN", "8030607379:AAFfRjpTIUOsF0aNtFQxLDvoTEmJx3JaT7U")
+BOT_TOKEN = environ.get("BOT_TOKEN", "7715978623:AAFS3eTNQ5qHj98ZHukwawSaar0f7ooxYlE")
 
-PICS = (environ.get('PICS', 'https://envs.sh/BcS.jpg')).split() # Bot Start Picture
+PICS = (environ.get('PICS', '')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '833465134 6769726996').split()]
-BOT_USERNAME = environ.get("BOT_USERNAME", "Alienstream_bot") # without @
+BOT_USERNAME = environ.get("BOT_USERNAME", "AlphaSStream_bot") # without @
 PORT = environ.get("PORT", "8080")
 
 # Clone Info :-
@@ -35,7 +33,7 @@ CLONE_DB_URI = environ.get("CLONE_DB_URI", "")
 CDB_NAME = environ.get("CDB_NAME", "clonetechvj")
 
 # Database Information
-DB_URI = environ.get("DB_URI", "mongodb+srv://rizzi:hASMzvqLuaCHDzS1@cluster0.ajbe0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DB_URI = environ.get("DB_URI", "mongodb+srv://pmf6am:gukha@cluster0.izeag.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DB_NAME = environ.get("DB_NAME", "techvjbotz")
 
 # Auto Delete Information
@@ -46,7 +44,7 @@ AUTO_DELETE = int(environ.get("AUTO_DELETE", "30")) # Time in Minutes
 AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "1800")) # Time in Seconds
 
 # Channel Information
-LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002164681451"))
+LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002464638188"))
 
 # File Caption Information
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
@@ -80,10 +78,8 @@ if 'DYNO' in environ:
     ON_HEROKU = True
 else:
     ON_HEROKU = False
-URL = environ.get("URL", "https://storestream-397b4efe9591.herokuapp.com/")
+URL = environ.get("URL", "")
 
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
     

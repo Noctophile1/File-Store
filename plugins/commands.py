@@ -1,6 +1,4 @@
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
 import os
 import logging
@@ -25,9 +23,7 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
 
 def get_size(size):
@@ -41,9 +37,7 @@ def get_size(size):
         size /= 1024.0
     return "%.2f %s" % (size, units[i])
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ0
+
 
 
 @Client.on_message(filters.command("start") & filters.incoming)
@@ -54,10 +48,10 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('Updates Channel', url='https://t.me/PubleechGroup')
+            InlineKeyboardButton('Updates Channel', url='https://t.me/alpha_botnetwork')
             ],[
-            InlineKeyboardButton('Shop', url='https://t.me/CloudStoreRizz'),
-            InlineKeyboardButton('Owner', url='https://t.me/Noctophile')
+            InlineKeyboardButton('Alpha Music', url='https://t.me/alphonzMusic'),
+            InlineKeyboardButton('Owner', url='https://t.me/AmbassadorXD')
             ],[
             InlineKeyboardButton('Help', callback_data='help'),
             InlineKeyboardButton('About', callback_data='about')
@@ -73,9 +67,7 @@ async def start(client, message):
         )
         return
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
     
     data = message.command[1]
     try:
@@ -161,16 +153,16 @@ async def start(client, message):
                     download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
  
                     await log_msg.reply_text(
-                        text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                        text=f"• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n• File Name : {fileName}",
                         quote=True,
                         disable_web_page_preview=True,
-                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀Fast Download", url=download),  # we download Link
-                                                            InlineKeyboardButton('🖥️Watch online', url=stream)]])  # web stream Link
+                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download", url=download),  # we download Link
+                                                            InlineKeyboardButton('Watch online', url=stream)]])  # web stream Link
                     )
                 if STREAM_MODE == True:
                     button = [[
-                        InlineKeyboardButton("🚀Fast Download", url=download),  # we download Link
-                        InlineKeyboardButton('🖥️Watch online', url=stream)
+                        InlineKeyboardButton("Fast Download", url=download),  # we download Link
+                        InlineKeyboardButton('Watch online', url=stream)
                     ],[
                         InlineKeyboardButton("• Watch in WEB APP •", web_app=WebAppInfo(url=stream))
                     ]]
@@ -213,9 +205,7 @@ async def start(client, message):
             await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
         return
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
     files_ = await get_file_details(file_id)           
     if not files_:
@@ -240,7 +230,7 @@ async def start(client, message):
             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
-            title = '@PubleechGroup ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
+            title = '@alpha_botnetwork' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
@@ -252,13 +242,13 @@ async def start(client, message):
             await msg.edit_caption(f_caption)
             if STREAM_MODE == True:
                 g = await msg.reply_text(
-                    text=f"**ボタンをクリックすると魔法が起こります👇**",
+                    text=f"**Bot of Alpha Bot Network**",
                     quote=True,
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('🚀Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
+                                InlineKeyboardButton('Fast Download / Watch Online', callback_data=f'generate_stream_link:{file_id}')
                             ]
                         ]
                     )
@@ -277,9 +267,7 @@ async def start(client, message):
             pass
         return await message.reply('No such file exist.')
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
     
     files = files_[0]
     title = files.file_name
@@ -313,13 +301,13 @@ async def start(client, message):
     )
     if STREAM_MODE == True:
         g = await x.reply_text(
-            text=f"**ボタンをクリックすると魔法が起こります👇**",
+            text=f"**Bot of Alpha Bot Network**",
             quote=True,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('🚀Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
+                        InlineKeyboardButton('Fast Download / Watch Online', callback_data=f'generate_stream_link:{file_id}')
                     ]
                 ]
             )
@@ -334,9 +322,7 @@ async def start(client, message):
         await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")       
         
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
 @Client.on_message(filters.command('api') & filters.private)
 async def shortener_api_handler(client, m: Message):
@@ -353,9 +339,7 @@ async def shortener_api_handler(client, m: Message):
         await update_user_info(user_id, {"shortener_api": api})
         await m.reply("<b>Shortener API updated successfully to</b> " + api)
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
 @Client.on_message(filters.command("base_site") & filters.private)
 async def base_site_handler(client, m: Message):
@@ -376,9 +360,7 @@ async def base_site_handler(client, m: Message):
         await update_user_info(user_id, {"base_site": base_site})
         await m.reply("<b>Base Site updated successfully</b>")
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -402,16 +384,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
     
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('Updates Channel', url='https://t.me/PubleechGroup')
+            InlineKeyboardButton('Updates Channel', url='https://t.me/alpha_botnetwork')
             ],[
-            InlineKeyboardButton('Shop', url='https://t.me/CloudStoreRizz'),
-            InlineKeyboardButton('Owner', url='https://t.me/Noctophile')
+            InlineKeyboardButton('Alpha Music', url='https://t.me/alphonzMusic'),
+            InlineKeyboardButton('Owner', url='https://t.me/AmbassadorXD')
             ],[
             InlineKeyboardButton('🤖', callback_data='clone')
             ],[
@@ -432,9 +412,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
     
     elif query.data == "clone":
         buttons = [[
@@ -453,9 +431,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )          
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
     
     elif query.data == "help":
         buttons = [[
@@ -474,9 +450,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )  
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
     elif query.data.startswith("generate_stream_link"):
         _, file_id = query.data.split(":")
@@ -496,13 +470,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(1)
             await xo.delete()
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
             button = [[
-                InlineKeyboardButton("🚀Fast Download", url=download),  # we download Link
-                InlineKeyboardButton('🖥️Watch online', url=stream)
+                InlineKeyboardButton("Fast Download", url=download),  # we download Link
+                InlineKeyboardButton('Watch online', url=stream)
             ]]
             reply_markup=InlineKeyboardMarkup(button)
             await log_msg.reply_text(
@@ -512,14 +484,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=reply_markup
             )
             button = [[
-                InlineKeyboardButton("🚀Fast Download", url=download),  # we download Link
-                InlineKeyboardButton('🖥️Watch online', url=stream)
+                InlineKeyboardButton("Fast Download", url=download),  # we download Link
+                InlineKeyboardButton('Watch online', url=stream)
             ],[
                 InlineKeyboardButton("Watch in WEB APP", web_app=WebAppInfo(url=stream))
             ]]
             reply_markup=InlineKeyboardMarkup(button)
             await query.message.reply_text(
-                text="HAVE FUN BUDDY ...........!☠︎",
+                text="@alpha_botnetwork!",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=reply_markup
@@ -529,6 +501,4 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong\n\n{e}", show_alert=True)
             return
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
